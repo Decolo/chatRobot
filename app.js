@@ -1,8 +1,8 @@
-let express = require('express')
-let app = express()
-let server = require('http').createServer(app)
-let io = require('socket.io')(server)
-let axios = require('axios')
+var express = require('express')
+var app = express()
+var server = require('http').createServer(app)
+var io = require('socket.io')(server)
+var axios = require('axios')
 
 // 获取静态资源
 app.use(express.static('./public'))
@@ -13,7 +13,7 @@ app.get('/', (req, res) => {
 io.on('connection', socket => {
   // 监听事件，获取消息
   socket.on('chat', (user, content) => {
-    let data = {
+    var data = {
       key: 'cc0a54ada0c447318eb31a450530b6b2',
       info: content,
       userid: user
